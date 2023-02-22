@@ -1,7 +1,7 @@
 # Scripts en python para tareas diarias del mundo real
 
 - ProcesadorImagenes.py
-    - Útil para procesar imagenes en un directorio, procesarlas con Pillow y almacenarlas en otro directorio. 
+    - Útil para procesar imagenes contenidas en una carpeta con Pillow y almacenarlas en otro directorio. 
     - Recibe como argumentos de linea de comandos:
         - [Path de la carpeta origen] 
         - [Path de destino] 
