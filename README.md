@@ -1,4 +1,4 @@
-# Scripts en python para tareas diarias
+# Scripts en python para automatización de tareas diarias
 
 - ProcesadorImagenes.py
     - Útil para procesar imagenes contenidas en una carpeta con Pillow y almacenarlas en otro directorio. 
