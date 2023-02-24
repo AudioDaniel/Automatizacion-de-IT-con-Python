@@ -1,5 +1,4 @@
 from PIL import Image
-import glob
 import os
 
 IMAGE_SIZE = 600, 400
@@ -18,16 +17,14 @@ def img_processor():
     for imgpath in files:
         resize_image(imgpath, f)
 
-        # file, ext = os.path.splitext(imgfile)
-        # resize_image(imgfile, file)
-
 
 def resize_image(imgpath, f):
     with Image.open(imgpath) as im:
-        # pass
+        im.convert("RGB")
         im.thumbnail(IMAGE_SIZE)
         full_target_dir = TARGET_DIR + "/" + f + "resize"
         im.save(full_target_dir + FORMAT)
 
 
-img_processor()
+if __name__ == "__main__":
+    img_processor()
