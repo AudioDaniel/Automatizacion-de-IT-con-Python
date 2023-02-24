@@ -13,4 +13,4 @@
         - [Estructura del diccionario]
 
 - Reports+Mail
-    - Procesa un Json para realizar un pdf y enviarlo por email
+    - Procesa un Json para realizar un informe en pdf y enviarlo por email
