@@ -11,3 +11,6 @@
     - Itera sobre una serie de archivos de texto contenidos en una carpeta y los envía mediante una solicitud POST a un servicio web.
         -[Path de la carpeta]
         -[Estructura del diccionario]
+
+- Reports+Mail
+    - Procesa un Json para realizar un pdf y enviarlo por email
