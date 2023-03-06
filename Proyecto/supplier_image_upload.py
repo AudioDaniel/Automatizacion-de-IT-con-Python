@@ -3,7 +3,7 @@ import os
 
 
 FOLDER = "C:/testpy"
-WEBSRVC = "[linux-instance-IP-Address]/upload"
+WEBSRVC = "http://" + "[linux-instance-IP-Address]/upload/"
 files = os.listdir(FOLDER)
 
 
@@ -14,17 +14,10 @@ def it_folder():
             post_imgs(data_file)
 
 
-# Where the processment occurs
-def process(data_file):
-    # TODO Procesar imagenes
-    post_imgs()
-    pass
-
-
 # Post images to the webservice
 def post_imgs(data):
-    requests.post("http://????????/feedback/", files={'file': data})
+    requests.post(WEBSRVC , files={'file': data})
 
 
 if __name__ == "__main__":
-    pass
+    it_folder()
