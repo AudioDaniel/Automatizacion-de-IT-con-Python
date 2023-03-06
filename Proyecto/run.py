@@ -2,3 +2,7 @@
 
 import os
 import requests
+
+DIRECTORY = "supplier-data/descriptions/"
+
+
