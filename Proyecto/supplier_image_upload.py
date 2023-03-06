@@ -16,7 +16,7 @@ def it_folder():
 
 # Post images to the webservice
 def post_imgs(data):
-    requests.post(WEBSRVC , files={'file': data})
+    requests.post(WEBSRVC, files={'file': data})
 
 
 if __name__ == "__main__":
