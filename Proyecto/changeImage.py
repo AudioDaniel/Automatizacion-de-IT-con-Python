@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from PIL import Image
 import os
 
@@ -25,7 +26,7 @@ def resize_image(imgpath):
         im.thumbnail(IMAGE_SIZE)
         basename = os.path.basename(imgpath)
         fname1,extension1 = os.path.splitext(basename)
-        full_target_dir = TARGET_DIR + "/" + basename + "resize"
+        full_target_dir = TARGET_DIR + "/" + fname1
         im.save(full_target_dir + FORMAT)
 
 

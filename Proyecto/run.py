@@ -1,45 +1,39 @@
-#! /usr/bin/env python3
-
-import os
+#!/usr/bin/env python3
+from os import listdir, path
+from unicodedata import normalize
 import requests
-
-DIRECTORY = "supplier-data/descriptions/"
-WEBSRVC = "linux-instance-IP-Address/fruits"
-
-FBACK_DICT = {
-    "name": "",
-    "weigh": "",
-    "description": "",
-    "image_name": "",
-}
+import json
 
 
-files = os.listdir(FOLDER)
+txt_dir = "supplier-data/descriptions/"
 
 
-def it_folder():
-    for fname in files:
-        with open(FOLDER + "/" + fname) as data_file:
-            process(data_file)
+text_files = [txt_dir + f for f in listdir(txt_dir) if f.endswith(".txt")]
 
 
-def process(data_file):
-    i = 0
-    for line in data_file:
-        it_dictionary(line, i)
-        i += 1
-    post_fback(FBACK_DICT)
+def getEntry(file):
+    
+    entry_id = path.splitext(path.basename(file))[0]
+    img_name = entry_id + ".jpeg"
+
+    with open(file) as f:
+        lines = f.read().strip().splitlines()
+    name, weight, description = lines
+
+    weight = int(weight.replace(" lbs", ""))
+
+  
+    keys = ["name", "weight", "description", "image_name"]
+    vals = [name, weight, description, img_name]
+    entry = dict(zip(keys, vals))
+    return entry
 
 
-def it_dictionary(line, i):
-    ln_no_nwline = line.rstrip()
-    keys = list(FBACK_DICT.keys())
-    FBACK_DICT[keys[i]] = ln_no_nwline
-
-
-def post_fback(data):
-    requests.post("http://????????/feedback/", data)
-
-
-if __name__ == "__main__":
-    it_folder()
+url = "http://localhost/fruits/"
+for file in text_files:
+    data = getEntry(file)
+    response = requests.post(url, data=data)
+    if response.ok:
+        print("uploaded data")
+    else:
+        print(f"error: {response.status_code}")
